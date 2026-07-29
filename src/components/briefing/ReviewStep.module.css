@@ -1,0 +1,41 @@
+.sectionTitle {
+  font-size: 15px;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  font-size: 14px;
+}
+
+.term {
+  color: var(--text-secondary);
+}
+
+.value {
+  color: var(--text-primary);
+  text-align: right;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .row {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .value {
+    text-align: left;
+  }
+}

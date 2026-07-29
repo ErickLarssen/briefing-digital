@@ -1,0 +1,22 @@
+.card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+.hoverable {
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.hoverable:hover {
+  border-color: var(--gold-500);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: var(--space-4);
+  }
+}

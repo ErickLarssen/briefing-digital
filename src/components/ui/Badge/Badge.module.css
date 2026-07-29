@@ -1,0 +1,40 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-family: var(--font-body);
+}
+
+.neutral {
+  background: var(--surface-2);
+  color: var(--text-secondary);
+}
+
+.gold {
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--gold-500);
+}
+
+.success {
+  background: rgba(76, 154, 106, 0.14);
+  color: var(--success);
+}
+
+.danger {
+  background: rgba(196, 85, 77, 0.14);
+  color: var(--danger);
+}
+
+.warning {
+  background: rgba(204, 139, 60, 0.14);
+  color: var(--warning);
+}
+
+.info {
+  background: rgba(76, 134, 201, 0.14);
+  color: var(--info);
+}

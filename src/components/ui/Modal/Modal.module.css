@@ -1,0 +1,59 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  z-index: 1000;
+}
+
+.dialog {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  max-width: 480px;
+  width: 100%;
+  box-shadow: var(--shadow-md);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.title {
+  font-size: 20px;
+  font-family: var(--font-display);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: var(--text-primary);
+}
+
+.body {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
+  .overlay {
+    padding: var(--space-3);
+  }
+
+  .dialog {
+    padding: var(--space-5);
+  }
+}

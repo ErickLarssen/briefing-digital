@@ -1,0 +1,18 @@
+.container {
+  padding: var(--space-6);
+  margin: 0 auto;
+}
+
+.default {
+  max-width: 560px;
+}
+
+.wide {
+  max-width: 640px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: var(--space-4);
+  }
+}

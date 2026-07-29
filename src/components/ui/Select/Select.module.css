@@ -1,0 +1,41 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  text-align: left;
+}
+
+.label {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.select {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: var(--font-body);
+  transition: border-color 0.2s ease;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--gold-500);
+}
+
+.selectError {
+  border-color: var(--danger);
+}
+
+.error {
+  font-size: 12px;
+  color: var(--danger);
+}
+
+.helper {
+  font-size: 12px;
+  color: var(--text-muted);
+}

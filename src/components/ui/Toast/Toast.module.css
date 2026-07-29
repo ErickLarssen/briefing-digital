@@ -1,0 +1,23 @@
+.toast {
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-left-width: 3px;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-5);
+  color: var(--text-primary);
+  font-size: 14px;
+  box-shadow: var(--shadow-md);
+  word-break: break-word;
+}
+
+.success {
+  border-left-color: var(--success);
+}
+
+.danger {
+  border-left-color: var(--danger);
+}
+
+.info {
+  border-left-color: var(--info);
+}

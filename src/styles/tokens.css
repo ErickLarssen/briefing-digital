@@ -12,7 +12,7 @@
   /* Texto */
   --text-primary: #f5f5f4;
   --text-secondary: #a8a7a3;
-  --text-muted: #6e6d6a;
+  --text-muted: #909090; /* ajustado na Etapa 12: ~3.3:1 → ~5.3:1 (WCAG AA) */
 
   /* Bordas */
   --border: rgba(255, 255, 255, 0.08);
@@ -21,8 +21,9 @@
   /* Semânticas */
   --success: #4c9a6a;
   --danger: #c4554d;
+  --danger-text: #e08079; /* variante mais clara p/ texto — --danger sozinho não atinge 4.5:1 */
   --warning: #cc8b3c;
-  --info: #4c86c9;
+  --info: #6b98d6; /* ajustado na Etapa 12: ~4.1:1 → ~5.3:1 (WCAG AA) */
 
   /* Tipografia */
   --font-display: 'Manrope', sans-serif;

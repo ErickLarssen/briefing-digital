@@ -8,6 +8,13 @@ import styles from './NicheSelection.module.css';
 function NicheSelection({ onSelect }) {
   const gridRef = useRef(null);
 
+  function handleKeyDown(event, slug) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onSelect(slug);
+    }
+  }
+
   useLayoutEffect(() => {
     // gsap.context garante que as animações sejam limpas corretamente ao
     // desmontar — importante porque o React 18 StrictMode roda efeitos
@@ -31,7 +38,15 @@ function NicheSelection({ onSelect }) {
       <h2 style={{ marginBottom: 'var(--space-5)' }}>Qual tipo de projeto você precisa?</h2>
       <div className={styles.grid} ref={gridRef}>
         {niches.map((niche) => (
-          <Card key={niche.slug} hoverable onClick={() => onSelect(niche.slug)} data-niche-card>
+          <Card
+            key={niche.slug}
+            hoverable
+            onClick={() => onSelect(niche.slug)}
+            onKeyDown={(event) => handleKeyDown(event, niche.slug)}
+            role="button"
+            tabIndex={0}
+            data-niche-card
+          >
             {niche.label}
           </Card>
         ))}

@@ -14,7 +14,10 @@ function Toast({ message, variant = 'info', onDismiss, duration = 4000 }) {
   }, [onDismiss, duration]);
 
   return (
-    <div className={`${styles.toast} ${VARIANT_CLASS[variant]}`} role="status">
+    <div
+      className={`${styles.toast} ${VARIANT_CLASS[variant]}`}
+      role={variant === 'danger' ? 'alert' : 'status'}
+    >
       {message}
     </div>
   );

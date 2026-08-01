@@ -8,7 +8,7 @@ const initialState = {
   currentStepIndex: 0, // 0 = tela de seleção de nicho
 };
 
-function briefingReducer(state, action) {
+export function briefingReducer(state, action) {
   switch (action.type) {
     case 'SELECT_NICHE':
       return { ...state, nicheSlug: action.nicheSlug, currentStepIndex: state.currentStepIndex + 1 };

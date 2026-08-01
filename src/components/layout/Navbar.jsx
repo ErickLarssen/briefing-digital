@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import logo from '@/assets/logo.png';
+import Logo from './Logo';
 import styles from './Navbar.module.css';
 
 function Navbar() {
   return (
     <header className={styles.navbar}>
       <Link to="/" className={styles.brand}>
-        <img src={logo} alt="Erick Silva" className={styles.brandLogo} />
+        <Logo className={styles.brandLogo} />
         <span className={styles.brandName}>ERICK SILVA</span>
       </Link>
 

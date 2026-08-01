@@ -2,8 +2,8 @@ import { useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { EASE, DURATION } from '@/utils/motion';
-import logo from '@/assets/logo.png';
 import Navbar from '@/components/layout/Navbar';
+import Logo from '@/components/layout/Logo';
 import styles from './Home.module.css';
 
 const STEPS = [
@@ -54,7 +54,7 @@ function Home() {
             Começar
           </Link>
         </div>
-        <img src={logo} alt="Erick Silva" className={styles.heroLogo} ref={logoRef} />
+        <Logo className={styles.heroLogo} ref={logoRef} />
       </section>
 
       <section id="como-funciona" className={styles.section}>

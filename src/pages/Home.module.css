@@ -5,7 +5,39 @@
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   flex: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.mediaLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  /* mesma cor de --surface-0, em duas opacidades — garante legibilidade
+     do texto por cima independente do que estiver acontecendo no vídeo */
+  background: linear-gradient(180deg, rgba(28, 28, 32, 0.6), rgba(28, 28, 32, 0.85));
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
@@ -107,7 +139,7 @@
 }
 
 @media (max-width: 900px) {
-  .hero {
+  .heroContent {
     grid-template-columns: 1fr;
     text-align: center;
     padding: var(--space-6) var(--space-4);
@@ -129,5 +161,25 @@
 
   .section {
     padding: var(--space-6) var(--space-4);
+  }
+
+  /* Vídeo autoplay em 3G/4G gasta dado e bateria à toa — no mobile,
+     mostramos só o frame estático (poster) como fundo. */
+  .bgVideo {
+    display: none;
+  }
+
+  .mediaLayer {
+    background: url('/hero-poster.jpg') center / cover no-repeat;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bgVideo {
+    display: none;
+  }
+
+  .mediaLayer {
+    background: url('/hero-poster.jpg') center / cover no-repeat;
   }
 }

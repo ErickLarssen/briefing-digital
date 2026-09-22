@@ -1,6 +1,6 @@
 <div align="center">
 
-# ✦ Plataforma de Briefing — Erick Silva
+# ✦ Plataforma de Briefing - Erick Silva
 
 ### Uma experiência de coleta de briefing premium, conversacional e inteligente, construída para substituir formulários genéricos de vez.
 
@@ -18,8 +18,7 @@
 <br />
 
 <div align="center">
-  <img src="./docs/screenshot-home.png" alt="Tela inicial da plataforma" width="800" />
-  <p><em>Substitua esta imagem por um screenshot real do projeto em produção.</em></p>
+  <img src="./public/tela.png" alt="Tela inicial da plataforma" width="800" />
 </div>
 
 ---
@@ -232,9 +231,9 @@ Hospedado na **Vercel**, com deploy automático a cada push na branch principal.
 
 **Erick Silva** — Desenvolvedor Full-Stack & Designer
 
-- LinkedIn: [seu link aqui]
-- Portfólio: [seu link aqui]
-- E-mail: [seu e-mail aqui]
+- LinkedIn: https://www.linkedin.com/in/ericklarssen/
+- Portfólio: https://ericksilva.dev/
+- E-mail: ericklarssen@gmail.com
 
 ## 📄 Licença
 

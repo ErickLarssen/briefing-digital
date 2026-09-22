@@ -28,6 +28,7 @@ function UploadStep({ files, onAddFiles, onRemoveFile, onNext, onBack }) {
   return (
     <div ref={containerRef} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
       <div>
+        <span className={styles.eyebrow}>Referências</span>
         <h2 style={{ marginBottom: 'var(--space-2)' }}>Tem alguma referência visual?</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>
           Opcional — envie imagens, PDFs ou materiais que ajudem a entender sua ideia.

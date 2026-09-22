@@ -1,18 +1,44 @@
 .container {
-  padding: var(--space-6);
+  position: relative;
+  width: 100%;
   margin: 0 auto;
+  background: var(--glass-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-gold-sm);
+  overflow: hidden;
+}
+
+.sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent 35%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-8) var(--space-7);
 }
 
 .default {
-  max-width: 560px;
+  max-width: 680px;
 }
 
 .wide {
-  max-width: 640px;
+  max-width: 920px;
 }
 
 @media (max-width: 640px) {
   .container {
-    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+
+  .inner {
+    padding: var(--space-5) var(--space-4);
   }
 }

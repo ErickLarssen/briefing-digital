@@ -30,6 +30,7 @@ function ReviewStep({ nicheSlug, answers, files, onBack, onSubmitted }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
       <div>
+        <span className={styles.eyebrow}>Revisão final</span>
         <h2 style={{ marginBottom: 'var(--space-2)' }}>Revise antes de enviar</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>
           Confira suas respostas. Se algo estiver errado, volte e ajuste antes de confirmar.

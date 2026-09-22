@@ -1,0 +1,37 @@
+.page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fundo ambiente: glows dourados sutis para preencher o espaço vazio ao
+   redor do painel central em telas largas, sem competir com o conteúdo. */
+.page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(680px circle at 10% -10%, rgba(212, 175, 55, 0.12), transparent 60%),
+    radial-gradient(560px circle at 100% 15%, rgba(212, 175, 55, 0.07), transparent 55%),
+    radial-gradient(720px circle at 50% 120%, rgba(212, 175, 55, 0.05), transparent 60%), var(--surface-0);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--space-8) var(--space-6);
+}
+
+.progress {
+  margin-bottom: var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: var(--space-6) var(--space-4);
+  }
+}

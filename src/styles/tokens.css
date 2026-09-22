@@ -53,10 +53,20 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-pill: 999px;
 
   /* Sombras */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.24);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.45);
   --shadow-glow-gold: 0 0 24px rgba(212, 175, 55, 0.15);
+  --shadow-glow-gold-sm: 0 0 0 1px rgba(212, 175, 55, 0.16);
+
+  /* Superfície de vidro — painéis premium com blur sobre o fundo ambiente */
+  --glass-surface: rgba(35, 35, 40, 0.72);
+
+  /* Gradientes de marca */
+  --gradient-gold: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+  --gradient-gold-soft: linear-gradient(135deg, rgba(228, 199, 102, 0.16), rgba(212, 175, 55, 0.05));
 }

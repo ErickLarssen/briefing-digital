@@ -50,6 +50,12 @@ function FileDropzone({ onFilesSelected, multiple = true, accept }) {
       tabIndex={0}
       aria-label="Enviar arquivos de referência"
     >
+      <span className={styles.iconBadge} aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M7 18a4.5 4.5 0 0 1-1-8.9 5.5 5.5 0 0 1 10.8-1.6A4 4 0 0 1 17 18H7z" />
+          <path d="M12 12v6M9.5 14.5 12 12l2.5 2.5" />
+        </svg>
+      </span>
       <p className={styles.text}>Arraste arquivos aqui ou clique para selecionar</p>
       <p className={styles.hint}>Imagens, PDFs ou documentos de referência</p>
       <input

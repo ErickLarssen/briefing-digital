@@ -6,8 +6,10 @@ import NicheSelection from '@/components/briefing/NicheSelection';
 import QuestionStep from '@/components/briefing/QuestionStep';
 import UploadStep from '@/components/briefing/UploadStep';
 import ReviewStep from '@/components/briefing/ReviewStep';
+import BriefingHeader from '@/components/briefing/BriefingHeader';
 import Stepper from '@/components/ui/Stepper';
 import PageContainer from '@/components/layout/PageContainer';
+import styles from './Briefing.module.css';
 
 function Briefing() {
   const { state, dispatch } = useBriefing();
@@ -29,56 +31,59 @@ function Briefing() {
     navigate('/sucesso');
   }
 
-  if (currentStepIndex === 0 || !nicheSlug) {
-    return (
-      <PageContainer width="wide">
-        <NicheSelection onSelect={handleSelectNiche} />
-      </PageContainer>
-    );
-  }
-
+  const isNicheStep = currentStepIndex === 0 || !nicheSlug;
   const groupIndex = currentStepIndex - 1;
-  const isQuestionStep = groupIndex < flow.length;
-  const isUploadStep = groupIndex === flow.length;
-  const isReviewStep = groupIndex === flow.length + 1;
+  const isQuestionStep = !isNicheStep && groupIndex < flow.length;
+  const isUploadStep = !isNicheStep && groupIndex === flow.length;
+  const isReviewStep = !isNicheStep && groupIndex === flow.length + 1;
 
   return (
-    <PageContainer>
-      <div style={{ marginBottom: 'var(--space-6)' }}>
-        <Stepper totalSteps={totalSteps} currentStep={currentStepIndex + 1} />
-      </div>
+    <div className={styles.page}>
+      <BriefingHeader />
 
-      {isQuestionStep && (
-        <QuestionStep
-          key={groupIndex}
-          group={flow[groupIndex]}
-          answers={answers}
-          onAnswer={handleAnswer}
-          onNext={handleNext}
-          onBack={handleBack}
-        />
-      )}
+      <main className={styles.main}>
+        <PageContainer width={isNicheStep ? 'wide' : 'default'}>
+          {!isNicheStep && (
+            <div className={styles.progress}>
+              <Stepper totalSteps={totalSteps} currentStep={currentStepIndex + 1} />
+            </div>
+          )}
 
-      {isUploadStep && (
-        <UploadStep
-          files={files}
-          onAddFiles={handleAddFiles}
-          onRemoveFile={handleRemoveFile}
-          onNext={handleNext}
-          onBack={handleBack}
-        />
-      )}
+          {isNicheStep && <NicheSelection onSelect={handleSelectNiche} />}
 
-      {isReviewStep && (
-        <ReviewStep
-          nicheSlug={nicheSlug}
-          answers={answers}
-          files={files}
-          onBack={handleBack}
-          onSubmitted={handleSubmitted}
-        />
-      )}
-    </PageContainer>
+          {isQuestionStep && (
+            <QuestionStep
+              key={groupIndex}
+              group={flow[groupIndex]}
+              answers={answers}
+              onAnswer={handleAnswer}
+              onNext={handleNext}
+              onBack={handleBack}
+            />
+          )}
+
+          {isUploadStep && (
+            <UploadStep
+              files={files}
+              onAddFiles={handleAddFiles}
+              onRemoveFile={handleRemoveFile}
+              onNext={handleNext}
+              onBack={handleBack}
+            />
+          )}
+
+          {isReviewStep && (
+            <ReviewStep
+              nicheSlug={nicheSlug}
+              answers={answers}
+              files={files}
+              onBack={handleBack}
+              onSubmitted={handleSubmitted}
+            />
+          )}
+        </PageContainer>
+      </main>
+    </div>
   );
 }
 

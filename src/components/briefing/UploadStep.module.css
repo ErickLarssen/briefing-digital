@@ -1,3 +1,13 @@
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  margin-bottom: var(--space-2);
+}
+
 .fileList {
   list-style: none;
   display: flex;
@@ -11,8 +21,13 @@
   justify-content: space-between;
   background: var(--surface-1);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-4);
+  transition: border-color 0.2s ease;
+}
+
+.fileItem:hover {
+  border-color: var(--border-strong);
 }
 
 .fileName {

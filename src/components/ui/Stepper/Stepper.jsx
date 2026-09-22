@@ -5,7 +5,7 @@ import styles from './Stepper.module.css';
 function Stepper({ totalSteps, currentStep }) {
   return (
     <div className={styles.stepper}>
-      <span className={styles.srOnly} aria-live="polite">
+      <span className={styles.label} aria-live="polite">
         {`Etapa ${currentStep} de ${totalSteps}`}
       </span>
       <div className={styles.track} aria-hidden="true">

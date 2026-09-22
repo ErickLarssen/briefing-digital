@@ -1,18 +1,20 @@
 .card {
   background: var(--surface-1);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: var(--space-5);
+  transition: border-color 0.2s ease, box-shadow 0.25s ease;
 }
 
 .hoverable {
-  transition: border-color 0.2s ease, transform 0.15s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.25s ease;
   cursor: pointer;
 }
 
 .hoverable:hover {
   border-color: var(--gold-500);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md), var(--shadow-glow-gold-sm);
 }
 
 @media (max-width: 480px) {

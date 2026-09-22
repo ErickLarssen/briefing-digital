@@ -1,12 +1,14 @@
 .button {
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 15px;
+  letter-spacing: 0.01em;
   border-radius: var(--radius-sm);
   padding: var(--space-3) var(--space-6);
   cursor: pointer;
   border: 1px solid transparent;
-  transition: box-shadow 0.2s ease, transform 0.15s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: box-shadow 0.25s ease, transform 0.15s ease, border-color 0.2s ease, color 0.2s ease,
+    background 0.25s ease;
 }
 
 .button:disabled {
@@ -19,12 +21,14 @@
 }
 
 .primary {
-  background: var(--gold-500);
+  background: var(--gradient-gold);
   color: var(--surface-0);
+  box-shadow: var(--shadow-sm);
 }
 
 .primary:hover:not(:disabled) {
-  box-shadow: var(--shadow-glow-gold);
+  box-shadow: var(--shadow-glow-gold), var(--shadow-md);
+  transform: translateY(-1px);
 }
 
 .secondary {
@@ -35,6 +39,7 @@
 
 .secondary:hover:not(:disabled) {
   border-color: var(--gold-500);
+  background: var(--surface-1);
 }
 
 .ghost {
@@ -45,6 +50,7 @@
 
 .ghost:hover:not(:disabled) {
   color: var(--text-primary);
+  background: var(--surface-1);
 }
 
 @media (max-width: 640px) {

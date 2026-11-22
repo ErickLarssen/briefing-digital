@@ -1,6 +1,5 @@
-// Fonte única de verdade para os 8 nichos definidos na Etapa 1.
-// Cada nicho aponta para seu próprio arquivo de perguntas em src/data/questions/
-// (vamos criar esses arquivos na Etapa 7 — Motor do Briefing Inteligente).
+// Fonte única de verdade para os nichos atendidos.
+// Cada slug precisa ter seus grupos de perguntas em src/data/questions/index.js.
 
 export const niches = [
   {
@@ -32,15 +31,5 @@ export const niches = [
     slug: 'motion-design',
     label: 'Motion Design',
     description: 'Animações e vídeos que dão vida à sua marca.',
-  },
-  {
-    slug: 'modelagem-3d',
-    label: 'Modelagem 3D',
-    description: 'Peças, cenas e produtos em três dimensões.',
-  },
-  {
-    slug: 'social-media',
-    label: 'Social Media',
-    description: 'Conteúdo e identidade para redes sociais.',
   },
 ];

@@ -53,20 +53,6 @@ const ICON_PATHS = {
       <path d="M10 8.6l6 3.4-6 3.4z" fill="currentColor" stroke="none" />
     </>
   ),
-  'modelagem-3d': (
-    <>
-      <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" />
-      <path d="M4 7.5 12 12l8-4.5M12 12v9" />
-    </>
-  ),
-  'social-media': (
-    <>
-      <circle cx="6" cy="12" r="2.2" />
-      <circle cx="17" cy="6" r="2.2" />
-      <circle cx="17" cy="18" r="2.2" />
-      <path d="M8 10.8 15 7M8 13.2l7 3.8" />
-    </>
-  ),
 };
 
 function NicheIcon({ slug }) {

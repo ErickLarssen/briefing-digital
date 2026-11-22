@@ -9,11 +9,21 @@ import styles from './UploadStep.module.css';
 
 function UploadStep({ files, onAddFiles, onRemoveFile, onNext, onBack }) {
   const containerRef = useRef(null);
+  const headingRef = useRef(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(containerRef.current, { opacity: 0, y: 12, duration: DURATION, ease: EASE });
+      gsap.from(containerRef.current, {
+        opacity: 0,
+        y: 12,
+        duration: DURATION,
+        ease: EASE,
+        clearProps: 'opacity,transform',
+      });
     }, containerRef);
+    // Sem campo de texto nesta etapa: o foco vai para o título (tabIndex -1).
+    // Depois do gsap.from, pelo mesmo motivo explicado no QuestionStep.
+    headingRef.current?.focus();
     return () => ctx.revert();
   }, []);
 
@@ -29,7 +39,7 @@ function UploadStep({ files, onAddFiles, onRemoveFile, onNext, onBack }) {
     <div ref={containerRef} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
       <div>
         <span className={styles.eyebrow}>Referências</span>
-        <h2 style={{ marginBottom: 'var(--space-2)' }}>Tem alguma referência visual?</h2>
+        <h2 ref={headingRef} tabIndex={-1} style={{ marginBottom: 'var(--space-2)', outline: 'none' }}>Tem alguma referência visual?</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>
           Opcional — envie imagens, PDFs ou materiais que ajudem a entender sua ideia.
         </p>

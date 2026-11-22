@@ -22,6 +22,10 @@ export default [
     },
     rules: {
       ...js.configs.recommended.rules,
+      // O no-unused-vars do core não enxerga uso em JSX (<Button />), o que gerava
+      // dezenas de falsos positivos. Mesmo ajuste do template oficial do Vite:
+      // nomes em PascalCase (componentes) e constantes com "_" são ignorados.
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],

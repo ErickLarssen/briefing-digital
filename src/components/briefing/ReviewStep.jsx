@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { buildReviewSections } from '@/utils/buildReviewSections';
 import { formatFileSize } from '@/utils/formatters';
 import { sendBriefingEmail } from '@/services/emailService';
@@ -12,6 +12,12 @@ function ReviewStep({ nicheSlug, answers, files, onBack, onSubmitted }) {
   const [isSending, setIsSending] = useState(false);
   const { showToast } = useToast();
   const sections = buildReviewSections(nicheSlug, answers);
+  const headingRef = useRef(null);
+
+  // Mesmo motivo do UploadStep: sem campo de texto, o foco vai para o título.
+  useLayoutEffect(() => {
+    headingRef.current?.focus();
+  }, []);
 
   async function handleConfirm() {
     setIsSending(true);
@@ -31,7 +37,9 @@ function ReviewStep({ nicheSlug, answers, files, onBack, onSubmitted }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
       <div>
         <span className={styles.eyebrow}>Revisão final</span>
-        <h2 style={{ marginBottom: 'var(--space-2)' }}>Revise antes de enviar</h2>
+        <h2 ref={headingRef} tabIndex={-1} style={{ marginBottom: 'var(--space-2)', outline: 'none' }}>
+          Revise antes de enviar
+        </h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>
           Confira suas respostas. Se algo estiver errado, volte e ajuste antes de confirmar.
         </p>

@@ -6,10 +6,13 @@ import Select from '@/components/ui/Select';
 // futuro (ex: upload) significa mexer só aqui, nunca nos arquivos de dados.
 function QuestionRenderer({ question, value, onChange, error }) {
   const commonProps = {
-    label: question.label,
+    // Deixa explícito o que pode ser pulado (ex: orçamento) — antes o cliente
+    // só descobria tentando avançar.
+    label: question.required === false ? `${question.label} (opcional)` : question.label,
     value: value ?? '',
     onChange: (event) => onChange(question.id, event.target.value),
     error,
+    helperText: question.helperText,
   };
 
   if (question.type === 'select') {

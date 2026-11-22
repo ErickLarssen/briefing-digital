@@ -53,7 +53,7 @@ Esta plataforma nasceu para resolver isso: um briefing que **se adapta ao tipo d
 
 ## ✨ Funcionalidades
 
-- 🎯 **Perguntas dinâmicas por nicho** — Identidade Visual, Landing Page, Site Institucional, Sistema Web, Aplicativo, Motion Design, Modelagem 3D e Social Media têm fluxos de perguntas próprios
+- 🎯 **Perguntas dinâmicas por nicho** — Identidade Visual, Landing Page, Site Institucional, Sistema Web, Aplicativo e Motion Design têm fluxos de perguntas próprios
 - 💬 **Experiência conversacional** — nunca mais de 2-3 perguntas por tela, com barra de progresso sempre visível
 - 💾 **Salvamento automático** — o cliente pode fechar a aba e retomar de onde parou
 - 📎 **Upload de referências** com drag-and-drop
@@ -126,11 +126,11 @@ src/
 ├── context/               → BriefingContext, ToastContext
 ├── hooks/                 → useAutosave
 ├── data/
-│   ├── niches.js          → os 8 nichos disponíveis
+│   ├── niches.js          → os 6 nichos disponíveis
 │   └── questions/         → perguntas universais + por nicho
 ├── services/              → emailService
 ├── routes/                → AppRoutes (lazy-loaded)
-├── utils/                 → buildFlow, buildReviewSections, formatters, motion
+├── utils/                 → buildFlow, buildReviewSections, savedProgress, formatters, motion
 └── styles/                → tokens.css (Design System), global.css
 ```
 

@@ -1,5 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { briefingReducer } from './BriefingContext';
+import { describe, it, expect, beforeEach } from 'vitest';
+import { createElement } from 'react';
+import { renderHook } from '@testing-library/react';
+import { briefingReducer, BriefingProvider, useBriefing } from './BriefingContext';
 
 const initialState = {
   nicheSlug: null,
@@ -71,5 +73,43 @@ describe('briefingReducer', () => {
   it('uma ação desconhecida devolve o mesmo estado, sem alterações', () => {
     const next = briefingReducer(initialState, { type: 'ACAO_INEXISTENTE' });
     expect(next).toBe(initialState);
+  });
+});
+
+describe('BriefingProvider — restauração do progresso', () => {
+  const STORAGE_KEY = 'briefing-progress';
+
+  function renderProvider() {
+    const wrapper = ({ children }) => createElement(BriefingProvider, null, children);
+    return renderHook(() => useBriefing(), { wrapper }).result.current.state;
+  }
+
+  beforeEach(() => localStorage.clear());
+
+  it('restaura um progresso válido já no primeiro render', () => {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ version: 1, nicheSlug: 'landing-page', answers: { email: 'a@b.com' }, currentStepIndex: 2 })
+    );
+
+    const state = renderProvider();
+    expect(state.nicheSlug).toBe('landing-page');
+    expect(state.currentStepIndex).toBe(2);
+    expect(state.answers).toEqual({ email: 'a@b.com' });
+  });
+
+  it('regressão: progresso com nicho removido recomeça do zero (não cai em tela vazia)', () => {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ nicheSlug: 'social-media', answers: { nome_completo: 'X' }, currentStepIndex: 8 })
+    );
+
+    expect(renderProvider()).toEqual(initialState);
+    expect(JSON.parse(localStorage.getItem(STORAGE_KEY)).nicheSlug).toBeNull();
+  });
+
+  it('JSON corrompido no localStorage não quebra a aplicação', () => {
+    localStorage.setItem(STORAGE_KEY, '{quebrado');
+    expect(renderProvider()).toEqual(initialState);
   });
 });

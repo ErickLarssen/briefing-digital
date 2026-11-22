@@ -7,7 +7,10 @@ import { Routes, Route } from 'react-router-dom';
 const Home = lazy(() => import('../pages/Home.jsx'));
 const Briefing = lazy(() => import('../pages/Briefing.jsx'));
 const Success = lazy(() => import('../pages/Success.jsx'));
-const UIKitPreview = lazy(() => import('../pages/UIKitPreview.jsx'));
+// O import() precisa ficar dentro da condição: se ficar fora, o Vite gera o
+// chunk mesmo sem rota. Com import.meta.env.DEV (constante no build), o ramo
+// inteiro é eliminado e o UI Kit não vai para dist/.
+const UIKitPreview = import.meta.env.DEV ? lazy(() => import('../pages/UIKitPreview.jsx')) : null;
 
 function AppRoutes() {
   return (
@@ -17,7 +20,7 @@ function AppRoutes() {
         <Route path="/briefing/*" element={<Briefing />} />
         <Route path="/sucesso" element={<Success />} />
         {/* Rota de conferência do UI Kit — só existe em desenvolvimento */}
-        {import.meta.env.DEV && <Route path="/ui-kit" element={<UIKitPreview />} />}
+        {UIKitPreview && <Route path="/ui-kit" element={<UIKitPreview />} />}
       </Routes>
     </Suspense>
   );

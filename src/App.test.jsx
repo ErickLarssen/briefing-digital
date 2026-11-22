@@ -11,6 +11,9 @@ describe('App', () => {
       </MemoryRouter>
     );
 
-    expect(await screen.findByText(/Conte sua/i)).toBeInTheDocument();
+    // A Home é carregada com React.lazy (+ GSAP). Rodando junto com os outros
+    // arquivos de teste, o import pode passar de 1s (timeout padrão) — por isso
+    // um limite maior, sem mudar o que está sendo verificado.
+    expect(await screen.findByText(/Conte sua/i, {}, { timeout: 5000 })).toBeInTheDocument();
   });
 });
